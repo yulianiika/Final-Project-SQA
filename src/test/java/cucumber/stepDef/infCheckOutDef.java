@@ -1,6 +1,7 @@
 package cucumber.stepDef;
 
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
@@ -12,7 +13,7 @@ public class infCheckOutDef {
 
     CheckOutDef cek = new CheckOutDef();
     WebDriver driver = cek.driver;
-    @When("Checkouta")
+    @Given("Checkouta")
     public void checkouta() {
         cek.addToCart();
         cek.klikCheckout();
@@ -20,14 +21,14 @@ public class infCheckOutDef {
 
     @And("Input Your Information")
     public void inputYourInformation() {
-        cek.driver.findElement(By.id("first-name")).sendKeys("ika");
-        cek.driver.findElement(By.id("last-name")).sendKeys("ika");
-        cek.driver.findElement(By.id("postal-code")).sendKeys("1234");
+        driver.findElement(By.id("first-name")).sendKeys("ika");
+        driver.findElement(By.id("last-name")).sendKeys("ika");
+        driver.findElement(By.id("postal-code")).sendKeys("1234");
     }
 
     @And("klik Continue button")
     public void klikContinueButton() {
-        cek.driver.findElement(By.xpath("//*[@id=\"continue\"]"));
+        driver.findElement(By.xpath("//*[@id=\"continue\"]")).click();
     }
 
     @When("Checkoutb")
@@ -44,7 +45,7 @@ public class infCheckOutDef {
 
     @Then("user on Overview page")
     public void userOnOverviewPage() {
-        cek.driver.findElement(By.xpath("//*[@id=\"finish\"]"));
-        cek.driver.close();
+        driver.findElement(By.xpath("//*[@id=\"finish\"]"));
     }
+
 }

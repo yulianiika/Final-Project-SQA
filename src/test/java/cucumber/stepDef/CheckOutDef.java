@@ -1,5 +1,6 @@
 package cucumber.stepDef;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -11,7 +12,7 @@ public class CheckOutDef {
 
     WebDriver driver = add.driver;
 
-    @Given("Add to carta")
+    @When("Add to carta")
     public void addToCart() {
         add.successLoginInWeb();
         add.selectTheProductToAddToTheCart();
